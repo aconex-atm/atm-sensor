@@ -6,7 +6,7 @@ GPIO.setmode(GPIO.BCM)
 TRIG = 23
 ECHO =24
 
-print 'setup distance measurment'
+print ('setup distance measurment')
 
 GPIO.setup(TRIG, GPIO.OUT)
 GPIO.setup(ECHO, GPIO.IN)
@@ -36,7 +36,7 @@ while(True):
 	try:
 		dist = measure()
 		if dist<150:
-			print dist ," cm"
+			print (dist ," cm")
 	except (KeyboardInterrupt, SystemExit):
 		GPIO.cleanup()		
 
