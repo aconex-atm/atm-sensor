@@ -13,9 +13,9 @@ def setVacant():
 
 def sendReq(status):
     url = "http://52.62.29.150:8080/ts/1/" + status
-    req = urllib.request.Request(url, data=None, method='POST',   headers={'Content-Type': 'application/json'})
-    resp = urllib.request.urlopen(req);
-
+    #req = urllib.request.Request(url, data=None, method='POST',   headers={'Content-Type': 'application/json'})
+    #resp = urllib.request.urlopen(req);
+    print (status)
 
 def getDumpGoogle():
     url = "http://google.com.au"

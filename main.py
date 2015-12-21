@@ -43,11 +43,13 @@ while(True):
 			print (dist ," cm")
 			if currentStatus ==  Status.vacant:
 				setOccupied()
+				currentStatus = Status.occupied;
 			else:
 				pass
 		else:
 			if currentStatus == Status.occupied:
 				setVacant()
+				currentStatus = Status.vacant;
 			else:
 				pass
 	except (KeyboardInterrupt, SystemExit):
