@@ -42,13 +42,13 @@ while(True):
 		if dist<150:
 			print (dist ," cm")
 			if currentStatus ==  Status.vacant:
-				setOccupied()
+				sensorHttpService.setOccupied()
 				currentStatus = Status.occupied;
 			else:
 				pass
 		else:
 			if currentStatus == Status.occupied:
-				setVacant()
+				sensorHttpService.setVacant()
 				currentStatus = Status.vacant;
 			else:
 				pass
