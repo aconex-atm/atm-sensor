@@ -7,7 +7,7 @@ class Status:
 	vacant='vacant'
 
 def sendReq(status):
-    emptyData = urllib.parse.urlencode({})
+    emptyData = urllib.parse.urlencode({}).encode('utf8')
     url = "http://52.62.29.150:8080/ts/1/" + status
     req = urllib.request.Request(url, data=emptyData,   headers={'Content-Type': 'application/json'})
     resp = urllib.request.urlopen(req);
