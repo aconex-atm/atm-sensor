@@ -7,10 +7,10 @@ class Status:
 
 def sendReq(status):
     emptyData = urllib.urlencode({})
-	url = "http://52.62.29.150:8080/ts/1/" + status
+    url = "http://52.62.29.150:8080/ts/1/" + status
     req = urllib.request.Request(url, data=emptyData,   headers={'Content-Type': 'application/json'})
-	resp = urllib.request.urlopen(req);
-	print (status)
+    resp = urllib.request.urlopen(req);
+    print (status)
 
 class sensorHttpService:
 	def setOccupied():
