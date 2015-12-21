@@ -2,16 +2,16 @@ import RPi.GPIO as GPIO
 import time
 exec(open("sensorHttpService.py").read());
 
+# GPIO setup
 GPIO.setmode(GPIO.BCM)
-
 TRIG = 23
 ECHO =24
-
-print ('setup distance measurment')
-
 GPIO.setup(TRIG, GPIO.OUT)
 GPIO.setup(ECHO, GPIO.IN)
+print ('setup distance measurment')
 
+
+# meansure function
 def measure():
 	GPIO.output(TRIG, False)
 	# print 'waiting for sensor to settle'
@@ -32,9 +32,6 @@ def measure():
 	distance = pulse_duration * 17150
 	distance = round(distance, 2)
 	return distance
-
-
-
 
 #main app
 currentStatus = Status.vacant;
