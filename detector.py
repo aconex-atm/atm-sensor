@@ -53,9 +53,13 @@ while(True):
 			print (dist ," cm")
 			if currentStatus == 'vacant':
 				setOccupied()
+			else:
+				pass
 		else:
 			if currentStatus == 'occupied':
 				setVacant()
+			else:
+				pass
 	except (KeyboardInterrupt, SystemExit):
 		GPIO.cleanup()		
 
