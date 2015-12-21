@@ -8,7 +8,9 @@ import urllib.request
 # the_page = resp.read()
 # print (the_page)
 
-
+class Status:
+    occupied = 'occupied'
+    vacant='vacant'
 
 
 
@@ -18,11 +20,11 @@ def sendReq(status):
     resp = urllib.request.urlopen(req);
 
 def setOccupied():
-    sendReq('occupied')
+    sendReq(Status.occupied)
 
 def setVacant():
-    sendReq('vacant')
+    sendReq(Status.vacant)
 
-currentStatus = 'vacant';
 
-setVacant()
+# setVacant()
+setOccupied()

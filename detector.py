@@ -33,30 +33,42 @@ def measure():
 	distance = round(distance, 2)
 	return distance
 
+
+
+
+#http part
+class Status:
+	occupied = 'occupied'
+	vacant='vacant'
+
 def sendReq(status):
 	url = "http://52.62.29.150:8080/ts/1/" + status
 	req = urllib.request.Request(url, data=None, method='POST',   headers={'Content-Type': 'application/json'})
 	resp = urllib.request.urlopen(req);
 
 def setOccupied():
-	sendReq('occupied')
+	sendReq(Status.occupied)
 
 def setVacant():
-	sendReq('vacant')
+	sendReq(Status.vacant)
 
-currentStatus = 'vacant';
+
+
+
+#main app
+currentStatus = Status.vacant;
 
 while(True):
 	try:
 		dist = measure()
 		if dist<150:
 			print (dist ," cm")
-			if currentStatus == 'vacant':
+			if currentStatus ==  Status.vacant:
 				setOccupied()
 			else:
 				pass
 		else:
-			if currentStatus == 'occupied':
+			if currentStatus == Status.occupied:
 				setVacant()
 			else:
 				pass
