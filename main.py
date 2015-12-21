@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
-exec(open("sensorHttpService.py").read());
+import sensorHttpService
+from  sensorHttpService import Status
 
 # GPIO setup
 GPIO.setmode(GPIO.BCM)

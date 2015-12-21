@@ -13,12 +13,11 @@ def sendReq(status):
     resp = urllib.request.urlopen(req);
     print (status)
 
-class sensorHttpService:
-	def setOccupied():
-    		sendReq(Status.occupied)
+def setOccupied():
+  	sendReq(Status.occupied)
 
-	def setVacant():
-    		sendReq(Status.vacant)
+def setVacant():
+   	sendReq(Status.vacant)
 
 def getDumpGoogle():
     url = "http://google.com.au"
