@@ -1,2 +1,3 @@
+from monitor.circuit import checker as circuitChecker
 def run():
-	print ("hello world")
+	circuitChecker.CircuitChecker(1).keepCheck()
