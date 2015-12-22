@@ -1,3 +1,4 @@
-from monitor.circuit import checker as circuitChecker
+from monitor.circuit import checker_edge as circuitChecker
+
 def run():
 	circuitChecker.CircuitChecker(1).keepCheck()
