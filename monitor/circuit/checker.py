@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
-import sensorHttpService
-from  sensorHttpService import Status
+import monitor.http.sensorHttpService as httpService
+from  monitor.http.sensorHttpService import Status
 
 # GPIO setup
 GPIO.setmode(GPIO.BCM)
@@ -33,13 +33,13 @@ class CircuitChecker:
                     try:
                             if GPIO.input(IN_PORT) == 1:
                                     if currentStatus ==  Status.vacant:
-                                            sensorHttpService.setOccupied()
+                                            httpService.setOccupied()
                                             currentStatus = Status.occupied;
                                     else:
                                             pass
                             else:
                                     if currentStatus == Status.occupied:
-                                            sensorHttpService.setVacant()
+                                            httpService.setVacant()
                                             currentStatus = Status.vacant;
                                     else:
                                             pass
