@@ -33,13 +33,13 @@ class CircuitChecker:
                     try:
                             if GPIO.input(IN_PORT) == 1:
                                     if currentStatus ==  Status.vacant:
-                                            httpService.setOccupied()
+                                            httpService.setOccupied(self.toiletId)
                                             currentStatus = Status.occupied;
                                     else:
                                             pass
                             else:
                                     if currentStatus == Status.occupied:
-                                            httpService.setVacant()
+                                            httpService.setVacant(self.toiletId)
                                             currentStatus = Status.vacant;
                                     else:
                                             pass
