@@ -8,7 +8,7 @@ GPIO.setmode(GPIO.BCM)
 IN_PORT= 25
 GPIO.setup(IN_PORT, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 
-class CircuitChecker:
+class Checker_circuit:
     enabled = False
     toiletId = 0
     currentStatus = Status.vacant
