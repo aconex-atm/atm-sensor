@@ -26,6 +26,7 @@ class Checker_ultrasonic:
         self.threshold_distance = 150
         self.threshold_time_occupy = time_occupy
         self.threshold_time_vacant = time_vacant
+
     def keepCheck(self):
         time_enter_area = 0
         time_leave_area = 0
