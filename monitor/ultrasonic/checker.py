@@ -43,6 +43,7 @@ class Checker_ultrasonic:
                                             httpService.setOccupied(self.toiletId)
                                             self.currentStatus = Status.occupied;
                                             time_enter_area = 0
+                                            time_leave_area = 0
                         else:
                                 if self.currentStatus == Status.occupied:
                                         if (time_leave_area <= self.threshold_time_vacant):
@@ -51,6 +52,7 @@ class Checker_ultrasonic:
                                             httpService.setVacant(self.toiletId)
                                             self.currentStatus = Status.vacant;
                                             time_leave_area = 0
+                                            time_enter_area = 0
                 except (KeyboardInterrupt, SystemExit):
                         GPIO.cleanup()
         GPIO.cleanup()
