@@ -22,7 +22,7 @@ class Checker_ultrasonic:
         self.enabled = True
         self.toiletId = tId
         self.currentStatus = Status.vacant
-        self.threshold = 150
+        self.threshold = distance 
 
     def keepCheck(self):
         while(True):

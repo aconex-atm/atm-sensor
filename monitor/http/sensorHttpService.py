@@ -6,7 +6,7 @@ class Status:
 	occupied = 'occupied'
 	vacant='vacant'
 
-base_url= "http://52.62.29.150:8080/level/4/room/1/male/slot/"
+base_url= "http://52.62.29.150:8080/level/4/room/male/slot/"
 
 def sendReq(tid, status):
     emptyData = urllib.parse.urlencode({}).encode('utf8')
