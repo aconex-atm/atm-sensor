@@ -16,28 +16,40 @@ class Checker_ultrasonic:
     enabled=False
     toiletId=0
     currentStatus = Status.vacant;
-    threshold = 0
-
-    def __init__(self, tId, distance):
+    threshold_distance = 0
+    threshold_time_occupy = 1
+    threshold_time_vacant = 1
+    def __init__(self, tId, distance = 150, time_occupy = 4, time_vacant = 2):
         self.enabled = True
         self.toiletId = tId
         self.currentStatus = Status.vacant
-        self.threshold = 150
-
+        self.threshold_distance = 150
+        self.threshold_time_occupy = time_occupy
+        self.threshold_time_vacant = time_vacant
     def keepCheck(self):
+        time_enter_area = 0
+        time_leave_area = 0
         while(True):
                 try:
                         dist = measure()
-                        print (dist)
-                        if dist<self.threshold:
+                        if dist<self.threshold_distance:
                                 print (dist ," cm")
                                 if self.currentStatus ==  Status.vacant:
-                                        httpService.setOccupied(self.toiletId)
-                                        self.currentStatus = Status.occupied;
+                                        if (time_enter_area <= self.threshold_time_occupy):
+                                            time_enter_area +=1
+                                            pass
+                                        else:
+                                            httpService.setOccupied(self.toiletId)
+                                            self.currentStatus = Status.occupied;
+                                            time_enter_area = 0
                         else:
                                 if self.currentStatus == Status.occupied:
-                                        httpService.setVacant(self.toiletId)
-                                        self.currentStatus = Status.vacant;
+                                        if (time_leave_area <= self.threshold_time_vacant):
+                                            time_leave_area +=1
+                                        else:
+                                            httpService.setVacant(self.toiletId)
+                                            self.currentStatus = Status.vacant;
+                                            time_leave_area = 0
                 except (KeyboardInterrupt, SystemExit):
                         GPIO.cleanup()
         GPIO.cleanup()
